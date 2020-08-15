@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js --mode=production"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "serve": "http-server -p 8080 dist"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "http-server": "^0.12.3",
     "lodash": "^4.17.19"
   }
 }
