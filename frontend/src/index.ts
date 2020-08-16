@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 function component() {
   const element = document.createElement('div');
-  element.innerHTML = _.join(['Web', 'Gaming', 'Sandbox', 'Baby'], ' ');
+  element.innerHTML = _.join(['Web', 'Gaming', 'Sandbox'], ' ');
   return element;
 }
 
