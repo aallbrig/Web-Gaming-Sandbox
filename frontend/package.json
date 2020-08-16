@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js --mode=production",
-    "build-dev": "webpack --config webpack.config.js --mode=development",
-    "serve": "http-server -p 8080 dist"
+    "build-dev": "webpack --config webpack.config.js --mode=development --watch",
+    "serve": "http-server -p 8080 dist",
+    "serve-dev": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
@@ -21,9 +22,11 @@
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "bootstrap": "^4.5.2",
     "http-server": "^0.12.3",
     "lodash": "^4.17.19"
   }
