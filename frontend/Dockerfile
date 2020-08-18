@@ -17,6 +17,9 @@ COPY --from=development /app .
 RUN npm run build
 
 FROM node:14.8.0-alpine AS production
-COPY --from=builder dist .
+COPY --from=builder dist ./dist
+COPY --from=development /app/package.json .
+RUN npm install -g http-server
+
 CMD ["npm", "run", "serve"]
 EXPOSE 8080

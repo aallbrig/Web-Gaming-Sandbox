@@ -1,0 +1,13 @@
+server {
+  listen  80;
+
+  location / {
+    proxy_pass  http://${STATIC_HOST}:${STATIC_PORT};
+    proxy_set_header  Host $http_host;
+  }
+
+  location /api {
+    proxy_pass  http://${API_HOST}:${API_PORT};
+    proxy_set_header  Host $http_host;
+  }
+}
