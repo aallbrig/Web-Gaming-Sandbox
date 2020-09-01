@@ -1,0 +1,39 @@
+frontend:
+  app: frontend
+  service:
+    name: web-frontend
+    ports:
+      - protocol: TCP
+        port: 8080
+  deployment:
+    image: aallbrig/frontend:latest
+    containerPort: 8080
+    replicas: 1
+
+api:
+  app: api-backend
+  service:
+    ports:
+      - protocol: TCP
+        port: 8080
+  deployment:
+    image: aallbrig/api:latest
+    containerPort: 8080
+    replicas: 1
+
+nginx:
+  app: nginx
+  service:
+    targetPort: 80
+    ports:
+      - protocol: TCP
+        port: 80
+  deployment:
+    image: aallbrig/nginx:latest
+    containerPort: 80
+    replicas: 1
+
+ingress:
+  name: gaming-ingress
+  host: gaming.andrewallbright.com
+

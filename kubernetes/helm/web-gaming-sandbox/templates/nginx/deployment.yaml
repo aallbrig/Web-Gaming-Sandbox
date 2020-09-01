@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.nginx.app }}
+  labels:
+    app: {{ .Values.nginx.app }}
+spec:
+  replicas: {{ .Values.nginx.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.nginx.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nginx.app }}
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: nginx
+          image: {{ .Values.nginx.deployment.image }}
+          ports:
+            - containerPort: {{ .Values.nginx.deployment.containerPort }}
+          env:
+            - name: STATIC_HOST
+              value: {{ .Values.frontend.app }}.{{ .Release.Namespace }}.svc.cluster.local
+            - name: STATIC_PORT
+              value: "8080"
+            - name: API_HOST
+              value: {{ .Values.api.app }}.{{ .Release.Namespace }}.svc.cluster.local
+            - name: API_PORT
+              value: "8080"
