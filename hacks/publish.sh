@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
+. ./hacks/docker-functions.sh
 
-docker push aallbrig/api:latest
-docker push aallbrig/nginx:latest
-docker push aallbrig/frontend:latest
+docker__build_all
+docker__publish_all
