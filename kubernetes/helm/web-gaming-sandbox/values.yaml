@@ -35,5 +35,11 @@ nginx:
 
 ingress:
   name: gaming-ingress
-  host: gaming.andrewallbright.com
+  host: microfps.andrewallbright.com
 
+letsencrypt:
+  # Email address used for ACME registration
+  email:
+  # The ACME server URL
+  url: https://acme-v02.api.letsencrypt.org/directory
+  secretName: letsencrypt-prod
