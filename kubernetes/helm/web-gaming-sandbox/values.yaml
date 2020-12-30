@@ -35,5 +35,5 @@ nginx:
 
 ingress:
   name: gaming-ingress
-  host: gaming.andrewallbright.com
+  host: microfps.andrewallbright.com
 
